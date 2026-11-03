@@ -1,0 +1,509 @@
+
+/* =========================================
+   1. VARIABLES ET CONFIGURATION GENERALE
+========================================= */
+
+:root {
+    --bg-primary: #080D18;
+    --bg-secondary: #0D1728;
+    --bg-card: #111E32;
+
+    --blue-primary: #1687FF;
+    --blue-light: #48A9FF;
+
+    --text-primary: #F1F5FC;
+    --text-secondary: #A6B4C8;
+
+    --border-color: rgba(255, 255, 255, 0.08);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.7;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+
+/* =========================================
+   2. HEADER ET NAVIGATION
+========================================= */
+
+.header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+
+    background: rgba(8, 13, 24, 0.92);
+    backdrop-filter: blur(15px);
+
+    border-bottom: 1px solid var(--border-color);
+}
+
+.navbar {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px 40px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 30px;
+    font-weight: 800;
+    letter-spacing: -2px;
+}
+
+.logo span {
+    color: var(--blue-primary);
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+}
+
+.nav-links a {
+    color: var(--text-secondary);
+    font-size: 14px;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--blue-primary);
+}
+
+
+/* =========================================
+   3. HERO SECTION
+========================================= */
+
+.hero {
+    min-height: 100vh;
+    max-width: 1200px;
+    margin: auto;
+    padding: 120px 40px 70px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 60px;
+}
+
+.hero-content {
+    flex: 1;
+    animation: fadeInLeft 1s ease;
+}
+
+.intro {
+    color: var(--blue-primary);
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    margin-bottom: 15px;
+}
+
+.hero h1 {
+    font-size: clamp(48px, 7vw, 76px);
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 15px;
+}
+
+.hero h1 span {
+    color: var(--blue-primary);
+}
+
+.hero h2 {
+    font-size: 25px;
+    color: var(--text-secondary);
+    margin-bottom: 25px;
+    line-height: 1.5;
+}
+
+.hero h2 span {
+    color: var(--blue-light);
+}
+
+.description {
+    max-width: 550px;
+    color: var(--text-secondary);
+    font-size: 16px;
+    margin-bottom: 35px;
+}
+
+
+/* =========================================
+   4. BOUTONS
+========================================= */
+
+.hero-buttons {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    flex-wrap: wrap;
+}
+
+.btn-primary,
+.btn-secondary {
+    padding: 13px 25px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background: var(--blue-primary);
+    color: white;
+
+    box-shadow: 0 5px 20px rgba(22, 135, 255, 0.2);
+}
+
+.btn-primary:hover {
+    background: var(--blue-light);
+    transform: translateY(-4px);
+
+    box-shadow: 0 8px 25px rgba(22, 135, 255, 0.35);
+}
+
+.btn-secondary {
+    border: 1px solid var(--blue-primary);
+    color: var(--blue-light);
+}
+
+.btn-secondary:hover {
+    background: rgba(22, 135, 255, 0.12);
+    transform: translateY(-4px);
+}
+
+
+/* =========================================
+   5. PHOTO DE PROFIL - AVATAR CIRCULAIRE
+========================================= */
+
+.hero-image {
+    flex: 1;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    animation: fadeInRight 1s ease;
+}
+
+.image-border {
+    width: 350px;
+    height: 350px;
+    padding: 6px;
+
+    border-radius: 50%;
+
+    background: linear-gradient(
+        135deg,
+        #1687FF,
+        #071A35,
+        #48A9FF,
+        #1687FF
+    );
+
+    box-shadow:
+        0 0 25px rgba(22, 135, 255, 0.35),
+        0 0 60px rgba(22, 135, 255, 0.15);
+
+    transition: all 0.4s ease;
+}
+
+.image-border:hover {
+    transform: scale(1.04);
+
+    box-shadow:
+        0 0 35px rgba(22, 135, 255, 0.5),
+        0 0 70px rgba(22, 135, 255, 0.2);
+}
+
+.image-border img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+
+    border-radius: 50%;
+    display: block;
+
+    border: 3px solid var(--bg-primary);
+}
+
+
+/* =========================================
+   6. TITRE JAVA DEVELOPER ET LOGO JAVA
+========================================= */
+
+.java-title {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.java-logo {
+    width: 55px;
+    height: 55px;
+
+    padding: 9px;
+
+    object-fit: contain;
+
+    border-radius: 50%;
+    border: 2px solid var(--blue-primary);
+
+    background: var(--bg-card);
+
+    box-shadow:
+        0 0 15px rgba(22, 135, 255, 0.3);
+
+    transition: all 0.3s ease;
+}
+
+.java-logo:hover {
+    transform: rotate(10deg) scale(1.1);
+
+    box-shadow:
+        0 0 25px rgba(22, 135, 255, 0.6);
+}
+
+
+/* =========================================
+   7. SECTIONS GENERALES
+========================================= */
+
+section:not(.hero) {
+    padding: 100px 10%;
+    scroll-margin-top: 75px;
+}
+
+section:not(.hero) h2 {
+    font-size: 35px;
+    margin-bottom: 25px;
+    color: var(--text-primary);
+}
+
+section:not(.hero) p {
+    color: var(--text-secondary);
+}
+
+
+/* =========================================
+   8. ABOUT
+========================================= */
+
+#about {
+    background: var(--bg-secondary);
+}
+
+
+/* =========================================
+   9. SKILLS
+========================================= */
+
+#skills {
+    background: var(--bg-primary);
+}
+
+
+/* =========================================
+   10. PROJECTS
+========================================= */
+
+#projects {
+    background: var(--bg-secondary);
+}
+
+
+/* =========================================
+   11. CONTACT
+========================================= */
+
+#contact {
+    background: var(--bg-primary);
+}
+
+#contact a {
+    color: var(--blue-light);
+    transition: 0.3s;
+}
+
+#contact a:hover {
+    color: white;
+}
+
+
+/* =========================================
+   12. FOOTER
+========================================= */
+
+footer {
+    padding: 25px;
+    text-align: center;
+
+    background: var(--bg-secondary);
+    border-top: 1px solid var(--border-color);
+}
+
+footer p {
+    color: var(--text-secondary);
+    font-size: 13px;
+}
+
+
+/* =========================================
+   13. ANIMATIONS
+========================================= */
+
+@keyframes fadeInLeft {
+
+    from {
+        opacity: 0;
+        transform: translateX(-40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+
+    from {
+        opacity: 0;
+        transform: translateX(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+
+/* =========================================
+   14. RESPONSIVE - TABLETTES
+========================================= */
+
+@media (max-width: 900px) {
+
+    .navbar {
+        padding: 18px 25px;
+    }
+
+    .nav-links {
+        gap: 18px;
+    }
+
+    .hero {
+        gap: 30px;
+    }
+
+    .image-border {
+        width: 290px;
+        height: 290px;
+    }
+}
+
+
+/* =========================================
+   15. RESPONSIVE - TELEPHONES
+========================================= */
+
+@media (max-width: 650px) {
+
+    .navbar {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .nav-links {
+        gap: 14px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .nav-links a {
+        font-size: 12px;
+    }
+
+    .hero {
+        flex-direction: column-reverse;
+        text-align: center;
+
+        padding: 150px 20px 60px;
+    }
+
+    .hero-content {
+        width: 100%;
+    }
+
+    .hero h1 {
+        font-size: 48px;
+    }
+
+    .hero h2 {
+        font-size: 20px;
+    }
+
+    .java-title {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .java-logo {
+        width: 45px;
+        height: 45px;
+    }
+
+    .description {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .image-border {
+        width: 240px;
+        height: 240px;
+    }
+
+    section:not(.hero) {
+        padding: 70px 25px;
+    }
+
+    section:not(.hero) h2 {
+        font-size: 28px;
+    }
+}
